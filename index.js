@@ -16,8 +16,9 @@ app.get('/',(request,response)=>{
 
 app.get('/:route', async(req,res)=>{
   const { route } = req.params
+  console.log('route:',route)
   try{
-    let url = await Weburl.findOne({ shortLink: route})
+    let url = await Weburl.findOne({shortLink:route})
     res.redirect(url.urlOriginal)
   }catch(error){
     res.status(404).json({error:'url not saved'})
