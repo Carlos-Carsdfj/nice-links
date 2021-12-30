@@ -27,7 +27,7 @@ $form.addEventListener('submit',(ev)=>{
       const { shortLink }  = json
       if(shortLink){
         $ancho.text = shortLink
-        $ancho.href = shortLink
+        $ancho.href = 'http://'+shortLink
       }
     })
 })
