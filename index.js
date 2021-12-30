@@ -5,18 +5,18 @@ const db = require('./utils/mongodb.js')
 const Weburl = require('./models/Weburl.js')
 const uniqueUrl = require('./utils/urlGenerator.js')
 const app = express()
-
 db.connected()
 app.use(cors())
 app.use(express.json())
 
+app.use('/', express.static(__dirname + '/public'))
+
 app.get('/',(request,response)=>{
-  response.send('<h1>Hi Carsdfj<h1>')
+  response.render('index.html')
 })
 
 app.get('/:route', async(req,res)=>{
   const { route } = req.params
-  console.log('route:',route)
   try{
     let url = await Weburl.findOne({shortLink:route})
     res.redirect(url.urlOriginal)
@@ -28,6 +28,7 @@ app.get('/:route', async(req,res)=>{
 app.post('/create', async(req, res)=>{
   const { urlOriginal } = req.body
   const { hostname } = req
+
   if(urlOriginal ===''){
     return res.status(400).json({error: 'url is missing '})
   }
