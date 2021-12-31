@@ -23,3 +23,12 @@ necessary to have installed **Nodejs** y **NPM** for the next steps
 visit the port [http://localhost:3001](http://localhost:3001) (client side)
 
 
+
+## API REST
+
+| description | method | route |
+| :---: | :---: | :---: |
+| create |POST|root/create |
+| show short link to original link | GET | root/:shortlink |
+
+
