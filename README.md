@@ -1,6 +1,7 @@
 # NICE_LINKS
 A shortlinks api rest 
 is a simple URL shortener app. It will convert your boring long URL into nice and simple link with very great
+[nice-links.vercel.app](https://nice-links.vercel.app/)
 
 ## Install
 ```shell
