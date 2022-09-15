@@ -25,10 +25,11 @@ app.get('/:route', async (req, res) => {
   }
 })
 
-app.post('/create', async (req, res) => {
+app.post('/api/create', async (req, res) => {
   const { urlOriginal } = req.body
   const { hostname } = req
-
+  res.setHeader('Content-Type', 'application/json')
+  res.setHeader('Cache-Control', 's-max-age=1, stale-while-revalidate')
   if (urlOriginal === '') {
     return res.status(400).json({ error: 'url is missing ' })
   }
